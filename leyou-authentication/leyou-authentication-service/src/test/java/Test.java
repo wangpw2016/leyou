@@ -11,14 +11,36 @@ public class Test {
 
     public static void main(String[] args) {
 
-        List<String>  deviceIdsssss=new ArrayList<>();
-        deviceIdsssss.add("1");
-        deviceIdsssss.add("2");
-        deviceIdsssss.add("3");
-    final  String[] deviceIds = {""};
+         String name;
+
+         name=null;
+
+        ceshi(name);
+
+
+        User user1 = new User(1, "u1", "shenyang", "hahaha");
+        User user2 = new User(2, "u2", "shenyang", "gaga");
+        User user3 = new User(3, "u3", "shanghai", "lala");
+        User user4 = new User(4, "u4", "shanghai", "hahaha");
+        User user5 = new User(5, "u5", "shenyang", "gaga");
+        User user6 = new User(6, "u6", "shanghai", "hahaha");
+        User user7 = new User(7, "u7", "beijing", "gaga");
+        User user8 = new User(8, "u8", "beijing", "hahaha");
+        User user9 = new User(9, "u9", "shenyang", "lala");
+        List<User>  deviceIdsssss=new ArrayList<>();
+        deviceIdsssss.add(user1);
+        deviceIdsssss.add(user2 );
+        deviceIdsssss.add(user3);
+        deviceIdsssss.add(user4);
+        deviceIdsssss.add(user5 );
+        deviceIdsssss.add(user6);
+        deviceIdsssss.add(user7);
+        deviceIdsssss.add(user8 );
+        deviceIdsssss.add(user9);
+        String[] deviceIds = {""};
 
         deviceIdsssss.forEach(item -> {
-            deviceIds[0] += item+",";
+            deviceIds[0] += item.getName()+",";
         });
         if(StringUtils.isBlank( deviceIds[0])){
             System.out.println("aliyun  push  exception deviceIds  为空");
@@ -77,15 +99,7 @@ public class Test {
         ).collect(Collectors.toList());//.forEach(e-> System.out.printf(e));
 
 
-        User user1 = new User(1, "u1", "shenyang", "hahaha");
-        User user2 = new User(2, "u2", "shenyang", "gaga");
-        User user3 = new User(3, "u3", "shanghai", "lala");
-        User user4 = new User(4, "u4", "shanghai", "hahaha");
-        User user5 = new User(5, "u5", "shenyang", "gaga");
-        User user6 = new User(6, "u6", "shanghai", "hahaha");
-        User user7 = new User(7, "u7", "beijing", "gaga");
-        User user8 = new User(8, "u8", "beijing", "hahaha");
-        User user9 = new User(9, "u9", "shenyang", "lala");
+
         List<User> lis = new ArrayList<>();
         lis.add(user1);
         lis.add(user2);
@@ -106,6 +120,12 @@ public class Test {
 
 
 
+
+    }
+
+    public static  void  ceshi (String  name){
+
+        System.out.println(name);
 
     }
 
@@ -156,6 +176,8 @@ class TestArray<T> {
         return arg3;
     }
 }
+
+
     class User {
 
         private Integer id;

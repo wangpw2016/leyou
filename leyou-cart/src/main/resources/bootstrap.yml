@@ -4,4 +4,4 @@ spring:
       name: cart
       profile: dev
       label: master
-      uri: http://192.168.161.65:10011
+      uri: http://172.31.162.65:10011
