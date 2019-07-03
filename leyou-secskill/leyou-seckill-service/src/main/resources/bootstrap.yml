@@ -4,4 +4,4 @@ spring:
       name: seckill
       profile: dev
       label: master
-      uri: http://192.168.161.65:10011
+      uri: http://127.0.0.1:10011

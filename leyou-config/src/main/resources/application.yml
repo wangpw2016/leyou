@@ -12,7 +12,7 @@ spring:
     host: 127.0.0.1
     username: wangpw
     password: 123456
-#    virtual-host: /leyou
+ #   virtual-host: /leyou
 
 
 management: #暴露触发消息总线的地址

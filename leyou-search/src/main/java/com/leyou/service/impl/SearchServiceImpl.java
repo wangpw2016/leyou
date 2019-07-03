@@ -83,7 +83,7 @@ public class SearchServiceImpl implements SearchService {
         //2.查询sku
         List<Sku> skus = this.goodsClient.querySkuBySpuId(spu.getId());
         //3.查询详情
-        SpuDetail spuDetail = this.goodsClient.querySpuDetailBySpuId(spu.getId());
+      //  SpuDetail spuDetail = this.goodsClient.querySpuDetailBySpuId(spu.getId());
 
         //4.处理sku,仅封装id，价格、标题、图片、并获得价格集合
         List<Long> prices = new ArrayList<>();
@@ -100,9 +100,9 @@ public class SearchServiceImpl implements SearchService {
         });
 
         //提取公共属性
-        List<Map<String,Object>> genericSpecs = mapper.readValue(spuDetail.getSpecifications(),new TypeReference<List<Map<String,Object>>>(){});
+      //  List<Map<String,Object>> genericSpecs = mapper.readValue(spuDetail.getSpecifications(),new TypeReference<List<Map<String,Object>>>(){});
         //提取特有属性
-        Map<String,Object> specialSpecs = mapper.readValue(spuDetail.getSpecTemplate(),new TypeReference<Map<String,Object>>(){});
+     //   Map<String,Object> specialSpecs = mapper.readValue(spuDetail.getSpecTemplate(),new TypeReference<Map<String,Object>>(){});
 
         //过滤规格模板，把所有可搜索的信息保存到Map中
         Map<String,Object> specMap = new HashMap<>();
@@ -112,18 +112,18 @@ public class SearchServiceImpl implements SearchService {
         String k = "k";
         String options = "options";
 
-        genericSpecs.forEach(m -> {
-            List<Map<String, Object>> params = (List<Map<String, Object>>) m.get("params");
-            params.forEach(spe ->{
-                if ((boolean)spe.get(searchable)){
-                    if (spe.get(v) != null){
-                        specMap.put(spe.get(k).toString(), spe.get(v));
-                    }else if (spe.get(options) != null){
-                        specMap.put(spe.get(k).toString(), spe.get(options));
-                    }
-                }
-            });
-        });
+//      //  genericSpecs.forEach(m -> {
+//            List<Map<String, Object>> params = (List<Map<String, Object>>) m.get("params");
+//            params.forEach(spe ->{
+//                if ((boolean)spe.get(searchable)){
+//                    if (spe.get(v) != null){
+//                        specMap.put(spe.get(k).toString(), spe.get(v));
+//                    }else if (spe.get(options) != null){
+//                        specMap.put(spe.get(k).toString(), spe.get(options));
+//                    }
+//                }
+//            });
+//        });
         goods.setId(spu.getId());
         goods.setSubTitle(spu.getSubTitle());
         goods.setBrandId(spu.getBrandId());
